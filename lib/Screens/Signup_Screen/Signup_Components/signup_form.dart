@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:social/Screens/HomeScreen/home_screen.dart';
 import 'package:social/Screens/Login_Screen/login_screen.dart';
 import 'package:social/Shared_Components/field_label.dart';
 
@@ -164,7 +165,11 @@ class _SignupFormState extends State<SignupForm> {
                     style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.blue.shade900),
                     onPressed: () {
-                      if (formKey.currentState!.validate()) {}
+                      if (formKey.currentState!.validate()) {
+                        Navigator.pushReplacement(
+                            context, MaterialPageRoute(builder: (context) =>
+                          HomeScreen(),));
+                      }
                     },
                     child: Text(
                       "Signup",
