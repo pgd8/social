@@ -5,7 +5,7 @@ import 'package:social/Screens/HomeScreen/home_screen.dart';
 import 'package:social/Screens/Login_Screen/login_screen.dart';
 import 'package:social/Screens/Signup_Screen/register_screen.dart';
 
-class MyApp extends StatelessWidget{
+class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
@@ -16,15 +16,14 @@ class MyApp extends StatelessWidget{
           debugShowCheckedModeBanner: false,
           theme: MyTheme.lightTheme,
           title: "Social",
-          initialRoute: HomeScreen.routeName,
+          initialRoute: SignupScreen.routeName,
           routes: {
             SignupScreen.routeName: (context) => SignupScreen(),
-            LoginScreen.routeName : (context) => LoginScreen(),
-            HomeScreen.routeName : (context) => HomeScreen(),
+            LoginScreen.routeName: (context) => LoginScreen(),
+            HomeScreen.routeName: (context) => HomeScreen(),
           },
         );
       },
     );
   }
-
 }
