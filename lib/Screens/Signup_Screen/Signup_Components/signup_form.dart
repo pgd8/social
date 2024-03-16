@@ -167,8 +167,10 @@ class _SignupFormState extends State<SignupForm> {
                     onPressed: () {
                       if (formKey.currentState!.validate()) {
                         Navigator.pushReplacement(
-                            context, MaterialPageRoute(builder: (context) =>
-                          HomeScreen(),));
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => HomeScreen(),
+                            ));
                       }
                     },
                     child: Text(
@@ -177,7 +179,8 @@ class _SignupFormState extends State<SignupForm> {
                     )),
                 TextButton(
                     onPressed: () {
-                      Navigator.pushNamed(context, LoginScreen.routeName);
+                      Navigator.pushReplacementNamed(
+                          context, LoginScreen.routeName);
                     },
                     child: Text("Already Have Account?",
                         style: TextStyle(

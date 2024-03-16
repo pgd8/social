@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:social/My_App/my_theme.dart';
 import 'package:social/Screens/HomeScreen/home_screen.dart';
 import 'package:social/Screens/Login_Screen/login_screen.dart';
 import 'package:social/Screens/Signup_Screen/register_screen.dart';
@@ -13,8 +14,9 @@ class MyApp extends StatelessWidget{
       builder: (_, child) {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
+          theme: MyTheme.lightTheme,
           title: "Social",
-          initialRoute: SignupScreen.routeName,
+          initialRoute: HomeScreen.routeName,
           routes: {
             SignupScreen.routeName: (context) => SignupScreen(),
             LoginScreen.routeName : (context) => LoginScreen(),

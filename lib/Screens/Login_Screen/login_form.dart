@@ -15,7 +15,7 @@ class _LoginFormState extends State<LoginForm> {
   var formKey = GlobalKey<FormState>();
   var emailController = TextEditingController();
   var passwordController = TextEditingController();
-  bool visiblePassword = false;
+  bool hidePassword = true;
 
   @override
   Widget build(BuildContext context) {
@@ -65,8 +65,7 @@ class _LoginFormState extends State<LoginForm> {
                   height: 0.03.sh,
                 ),
                 TextFormField(
-                  obscureText: visiblePassword,
-                  obscuringCharacter: "*",
+                  obscureText: hidePassword,
                   controller: passwordController,
                   validator: (value) {
                     if (value == null || value == "") {
@@ -76,11 +75,11 @@ class _LoginFormState extends State<LoginForm> {
                   style: TextStyle(color: Colors.black, fontSize: 11.sp),
                   decoration: InputDecoration(
                     suffixIcon: IconButton(
-                      icon: Icon(visiblePassword
+                      icon: Icon(hidePassword
                           ? Icons.visibility_off_rounded
                           : Icons.visibility_rounded),
                       onPressed: () {
-                        visiblePassword = !visiblePassword;
+                        hidePassword = !hidePassword;
                         setState(() {});
                       },
                     ),
@@ -108,8 +107,10 @@ class _LoginFormState extends State<LoginForm> {
                     onPressed: () {
                       if (formKey.currentState!.validate()) {
                         Navigator.pushReplacement(
-                            context, MaterialPageRoute(builder: (context) =>
-                            HomeScreen(),));
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => HomeScreen(),
+                            ));
                       }
                     },
                     child: Text(
@@ -118,7 +119,8 @@ class _LoginFormState extends State<LoginForm> {
                     )),
                 TextButton(
                     onPressed: () {
-                      Navigator.pushNamed(context, SignupScreen.routeName);
+                      Navigator.pushReplacementNamed(
+                          context, SignupScreen.routeName);
                     },
                     child: Text("Don't Have Account?",
                         style: TextStyle(
