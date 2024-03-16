@@ -26,6 +26,15 @@ class MyTheme {
       showUnselectedLabels: false,
       showSelectedLabels: false,
       unselectedItemColor: Colors.grey,
+      selectedIconTheme: IconThemeData(
+        size: 35.sp
+      )
     ),
+    bottomAppBarTheme: BottomAppBarTheme(
+      shape: CircularNotchedRectangle(),
+      color: MyTheme.primaryColor,
+      padding: EdgeInsets.zero,
+      elevation: 0.07.sh,
+    )
   );
 }

@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           theme: MyTheme.lightTheme,
           title: "Social",
-          initialRoute: SignupScreen.routeName,
+          initialRoute: HomeScreen.routeName,
           routes: {
             SignupScreen.routeName: (context) => SignupScreen(),
             LoginScreen.routeName: (context) => LoginScreen(),

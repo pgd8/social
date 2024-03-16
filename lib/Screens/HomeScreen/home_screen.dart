@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:social/My_App/my_theme.dart';
 
 class HomeScreen extends StatefulWidget {
   static const String routeName = "Home Screen";
@@ -36,28 +37,48 @@ class _HomeScreenState extends State<HomeScreen> {
             topRight: Radius.circular(50.r),
             topLeft: Radius.circular(50.r),
           ),
-          child: BottomNavigationBar(
-            currentIndex: index,
-            onTap: (value) {
-              index = value;
-              setState(() {});
-            },
-            items: const [
-              BottomNavigationBarItem(
-                  icon: Icon(Icons.home_outlined), label: ""),
-              BottomNavigationBarItem(icon: Icon(Icons.search), label: ""),
-              BottomNavigationBarItem(
-                  icon:
-                      ImageIcon(AssetImage("assets/images/notifications.png")),
-                  label: ""),
-              BottomNavigationBarItem(
-                  icon: Icon(Icons.person_outline_rounded), label: ""),
-            ],
+          child: BottomAppBar(
+            notchMargin: 0.007.sh,
+            child: BottomNavigationBar(
+              backgroundColor: Colors.transparent,
+              elevation: 0,
+              currentIndex: index,
+              onTap: (value) {
+                index = value;
+                setState(() {});
+              },
+              items: const [
+                BottomNavigationBarItem(
+                    icon: Icon(Icons.home_outlined), label: ""),
+                BottomNavigationBarItem(icon: Icon(Icons.search), label: ""),
+                BottomNavigationBarItem(
+                    icon: ImageIcon(
+                        AssetImage("assets/images/notifications.png")),
+                    label: ""),
+                BottomNavigationBarItem(
+                    icon: Icon(Icons.person_outline_rounded), label: ""),
+              ],
+            ),
           ),
         ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {},
+          shape: CircleBorder(
+              eccentricity: 0.05.r, side: const BorderSide(color: Colors.grey)),
+          backgroundColor: MyTheme.primaryColor,
+          child: Icon(Icons.add,color: Colors.white,size: 40.sp,),
+        ),
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+        extendBody: true,
+        body: tabs[index],
       ),
     );
   }
 
-  List<Widget> tabs = [];
+  List<Widget> tabs = [
+    Container(),
+    Container(),
+    Container(),
+    Container(),
+  ];
 }
